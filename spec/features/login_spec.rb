@@ -7,11 +7,9 @@ RSpec.describe 'login' do
     visit root_url
 
     fill_in :username, with: 'rob'
-    click_button :login
-
     fill_in :password, with: 'letmein'
-    click_button :register
+    click_button :ENTER
 
-    expect(page).to have_selector('h1'), text: 'Certificates'
+    expect(page).to have_selector('h1', text: 'Certificates')
   end
 end
