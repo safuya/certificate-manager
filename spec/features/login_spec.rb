@@ -11,5 +11,6 @@ RSpec.describe 'login' do
     click_button :ENTER
 
     expect(page).to have_selector('h1', text: 'Certificates')
+    expect(page).to have_link('rob')
   end
 end

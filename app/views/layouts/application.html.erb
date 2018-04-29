@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>CertificateManager</title>
+    <title>Certificate Manager</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav>
+        <a href="https://sharepoints.tv.intra.bt.com" class="nav" id="sharepoint">
+          Sharepoints
+        </a>
+        <a href="https://broadbandportal.tv.intra.bt.com" class="nav left-vert"
+          id="broadband-portal">
+          Broadband Portal
+        </a>
+        <a href="https://device-manager.tv.intra.bt.com" class="nav left-vert"
+          id="device-manager">
+          Device Manager
+        </a>
+      </nav>
+      <div class="logo">
+        <%= image_tag "logo.png" %>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
