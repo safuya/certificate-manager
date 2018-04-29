@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe User, type: :model do
+RSpec.describe User, type: :model do
   let(:user) { User.new(username: 'rob') }
   let(:duplicate_user) { User.new(username: 'rob') }
 
