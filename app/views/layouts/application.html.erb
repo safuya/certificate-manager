@@ -31,6 +31,17 @@
       <div class="logo">
         <%= image_tag "logo.png" %>
       </div>
+      <% if logged_in? %><nav class="flex">
+        <%= link_to "Certificates", certificates_url, class: 'nav',
+          id: 'certificates-link' %>
+        <%= link_to 'Traffic Managers', '/placeholder', class: 'nav',
+          id: 'traffic-managers-link' %>
+        <%= link_to 'Users', '/placeholder', class: 'nav', id: 'users-link' %>
+        <%= link_to current_user.username, '/placeholder', class: 'nav',
+          id: 'profile-link' %>
+        <%= link_to 'Sign Out', '/sessions', method: 'delete', class: 'nav',
+          id: 'sign-out' %>
+      </nav><% end %>
     </header>
     <%= yield %>
   </body>

@@ -5,13 +5,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:username])
-    session[:user_id] = if user
-                          user.id
-                        else
-                          user = User.new(username: params[:username])
-                          user.save!
-                          user.id
-                        end
+    user ||= User.create!(username: params[:username])
+    session[:user_id] = user.id
     redirect_to certificates_url
+  end
+
+  def destroy
+    session.clear
+    redirect_to root_url
   end
 end

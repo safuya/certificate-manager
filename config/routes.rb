@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # http://guides.rubyonrails.org/routing.html
-  resources :sessions, only: %i[new create]
+  resource :sessions, only: %i[new create destroy]
   resources :certificates, only: %i[index]
   root to: 'sessions#new'
 end
