@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # http://guides.rubyonrails.org/routing.html
   resource :sessions, only: %i[new create destroy]
