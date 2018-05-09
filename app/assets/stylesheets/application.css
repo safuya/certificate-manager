@@ -49,6 +49,7 @@ input {
   color: white;
   font-size: 1.125rem;
 }
+/* END */
 
 /* HEADER */
 header {
@@ -69,3 +70,4 @@ div.logo {
   display: block;
   margin: 0 auto;
 }
+/* END */
