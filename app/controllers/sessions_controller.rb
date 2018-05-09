@@ -4,8 +4,12 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    user = User.find_by(username: params[:username])
-    user ||= User.create!(username: params[:username])
+    if auth
+      user = User.find_or_create_by_omniauth(auth)
+    else
+      user = User.find_by(username: params[:username])
+      return head(:forbidden) unless user.authenticate(params[:password])
+    end
     session[:user_id] = user.id
     redirect_to certificates_url
   end
@@ -13,5 +17,11 @@ class SessionsController < ApplicationController
   def destroy
     session.clear
     redirect_to root_url
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
   end
 end
