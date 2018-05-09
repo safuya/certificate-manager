@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-module ApplicationHelper
+module AuthenticationHelper
+  def authenticate!
+    redirect_to root_url unless logged_in?
+  end
+
   def logged_in?
     !!current_user
   end
