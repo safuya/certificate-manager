@@ -3,7 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'login' do
-  it 'submits a new authenticated username' do
+  before do
+    Rails.application.env_config['omniauth.auth'] = nil
+  end
+
+  it 'lets a user login using local credentials' do
+    User.create(username: 'rob', password: 'letmein')
     visit root_url
 
     fill_in :username, with: 'rob'
@@ -12,5 +17,12 @@ RSpec.describe 'login' do
 
     expect(page).to have_selector('h1', text: 'Certificates')
     expect(page).to have_link('rob')
+  end
+
+  it 'lets a user login using github' do
+    Rails.application.env_config['omniauth.auth'] = OmniAuth.config.mock_auth[:github]
+    visit root_url
+    click_link 'github'
+    expect(page).to have_link('mockuser')
   end
 end

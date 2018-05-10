@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  let(:user) { User.new(username: 'rob') }
-  let(:duplicate_user) { User.new(username: 'rob') }
+  let(:user) { User.new(username: 'rob', password: 'letmein') }
+  let(:duplicate_user) { User.new(username: 'rob', password: 'anotherme') }
 
   it 'creates new users' do
     expect(user).to be_valid
