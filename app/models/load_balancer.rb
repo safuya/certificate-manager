@@ -1,0 +1,2 @@
+class LoadBalancer < ApplicationRecord
+end
