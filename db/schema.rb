@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_194339) do
+ActiveRecord::Schema.define(version: 2018_05_11_202923) do
+
+  create_table "certificates", force: :cascade do |t|
+    t.string "url"
+    t.date "expiration"
+    t.integer "load_balancer_id"
+    t.string "ip_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["load_balancer_id"], name: "index_certificates_on_load_balancer_id"
+  end
 
   create_table "load_balancers", force: :cascade do |t|
     t.string "hostname"
