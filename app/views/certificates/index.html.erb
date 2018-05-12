@@ -1,5 +1,22 @@
 <h1>Certificates</h1>
 
+<div class="search">
+  <%= form_tag 'path' do %>
+    <input type="search" name="search" id="search" placeholder="Search">
+    <input list="headings" name="filter" placeholder="Filter">
+    <datalist id="headings">
+      <option value="url">URL</option>
+      <option value="vulnerabilities">Vulnerabilities</option>
+      <option value="ciphers">Ciphers</option>
+      <option value="ip_address">IP Address</option>
+      <option value="load_balancer">Load Balancer</option>
+    </datalist>
+    <button type="submit" id="submit-search">
+      <i class="fas fa-search fa-3x"></i>
+    </button>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>

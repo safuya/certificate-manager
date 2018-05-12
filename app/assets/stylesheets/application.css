@@ -51,6 +51,27 @@ input {
 }
 /* END */
 
+/* SEARCH */
+div.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  display: inline-block;
+  width: 200px;
+}
+
+button#submit-search {
+  background: var(--purple);
+  padding: 5px;
+  height: 80%;
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+}
+/* END */
+
 /* HEADER */
 header {
   background-color: var(--purple);
@@ -100,17 +121,18 @@ table p {
 }
 
 thead th:first-child {
-  border-radius: 10px 0 0 0;
+  border-radius: 16px 0 0 0;
 }
 
 thead th:last-child {
-  border-radius: 0 10px 0 0;
+  border-radius: 0 16px 0 0;
 }
 
 tbody tr:last-child td:first-child {
-  border-radius: 0 0 0 10px;
+  border-radius: 0 0 0 16px;
 }
 
 tbody tr:last-child td:last-child {
-  border-radius: 0 0 10px 0;
+  border-radius: 0 0 16px 0;
 }
+/* END */
