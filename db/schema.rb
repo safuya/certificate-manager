@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_11_202923) do
+ActiveRecord::Schema.define(version: 2018_05_12_053352) do
 
   create_table "certificates", force: :cascade do |t|
     t.string "url"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2018_05_11_202923) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["load_balancer_id"], name: "index_certificates_on_load_balancer_id"
+  end
+
+  create_table "ciphers", force: :cascade do |t|
+    t.string "name"
+    t.boolean "secure", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "load_balancers", force: :cascade do |t|

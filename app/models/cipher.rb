@@ -1,0 +1,2 @@
+class Cipher < ApplicationRecord
+end
