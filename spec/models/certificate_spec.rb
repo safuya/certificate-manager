@@ -18,6 +18,37 @@ RSpec.describe Certificate do
   it 'has a load balancer hostname' do
     certificate.save
     certificate.create_load_balancer(hostname: 'a', ip_address: '1')
-    expect(certificate.load_balancer_hostname).to eql(@load_balancer.hostname)
+    expect(certificate.load_balancer_hostname).to eql('a')
+  end
+
+  it 'can have many ciphers' do
+    certificate.save
+    certificate.ciphers.create(name: 'TLA')
+    certificate.ciphers.create(name: 'DES')
+    expect(certificate.ciphers.count).to eql(2)
+  end
+
+  it 'can list cipher names' do
+    certificate.save
+    certificate.ciphers.create(name: 'TLA')
+    certificate.ciphers.create(name: 'DES')
+    expect(certificate.cipher_names).to eql(%w[TLA DES])
+  end
+
+  it 'lists certificate vulnerabilities' do
+    certificate.save
+    certificate.ciphers.create(name: 'TLA', secure: true)
+    certificate.ciphers.create(name: 'DES', secure: false)
+    expect(certificate.vulnerabilities).to eql(%w[Expired DES])
+  end
+
+  it 'tells you all is well if you have no vulnerabilities' do
+    its_good = Certificate.create(
+      url: 'good.com',
+      expiration: Date.today + 30,
+      ip_address: '10.20.30.40'
+    )
+    its_good.ciphers.create(name: 'YAY', secure: true)
+    expect(its_good.vulnerabilities).to eql(['All good!'])
   end
 end
