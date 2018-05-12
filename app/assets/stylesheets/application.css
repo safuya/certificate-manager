@@ -60,6 +60,11 @@ header {
 header a {
   color: white;
   padding: 0.75rem;
+  text-shadow: 1px 1px 1px black;
+}
+
+header a:link, a:visited {
+  text-decoration: none;
 }
 
 div.logo {
@@ -71,3 +76,41 @@ div.logo {
   margin: 0 auto;
 }
 /* END */
+
+/* TABLE */
+table {
+  width: 100%;
+  border-radius: 6px;
+  border-collapse: separate;
+}
+
+thead {
+  background-color: var(--purple);
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+tbody td {
+  text-align: center;
+  background-color: rgba(221, 221, 221, 0.5);
+}
+
+table p {
+  line-height: 0.2em;
+}
+
+thead th:first-child {
+  border-radius: 10px 0 0 0;
+}
+
+thead th:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+
+tbody tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}

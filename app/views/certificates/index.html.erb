@@ -1,3 +1,28 @@
 <h1>Certificates</h1>
 
-<table></table>
+<table>
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Expiration</th>
+      <th>Vulnerabilities</th>
+      <th>Ciphers</th>
+      <th>IP Address</th>
+      <th>Load Balancer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @certificates.each do |cert| %><tr>
+      <td><%= cert.url %></td>
+      <td><%= cert.expiration %></td>
+      <td><% cert.vulnerabilities.each do |vuln| %>
+        <p><%= vuln %></p>
+      <% end %></td>
+      <td><% cert.cipher_names.each do |cipher| %>
+        <p><%= cipher %></p>
+      <% end %></td>
+      <td><%= cert.ip_address %></td>
+      <td><%= cert.load_balancer_hostname %></td>
+    </tr><% end %>
+  </tbody>
+</table>
