@@ -82,4 +82,19 @@ RSpec.describe Certificate do
     search_results = Certificate.search(params)
     expect(search_results[0].url).to eql(certificate.url)
   end
+
+  it 'lets you search for ip addresses' do
+    certificate.save
+    params = { search: '123.123.123.123', filter: 'ip_address' }
+    search_results = Certificate.search(params)
+    expect(search_results[0].url).to eql(certificate.url)
+  end
+
+  it 'lets you search for load balancers' do
+    certificate.save
+    certificate.create_load_balancer(hostname: 'lb01', ip_address: '1.1.1.1')
+    params = { search: 'lb01', filter: 'load_balancer' }
+    search_results = Certificate.search(params)
+    expect(search_results[0].url).to eql(certificate.url)
+  end
 end
