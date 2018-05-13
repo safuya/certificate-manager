@@ -71,4 +71,15 @@ RSpec.describe Certificate do
     expect(search_results.length).to eql(1)
     expect(search_results[0].url).to eql('site.com')
   end
+
+  it 'lets you search for ciphers' do
+    certificate.save
+    certificate.ciphers.create(name: 'DES')
+    Certificate.create(url: 'good.com',
+                       expiration: Date.tomorrow,
+                       ip_address: '10.20.30.40')
+    params = { search: 'DES', filter: 'ciphers' }
+    search_results = Certificate.search(params)
+    expect(search_results[0].url).to eql(certificate.url)
+  end
 end

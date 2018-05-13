@@ -30,7 +30,7 @@ class Certificate < ApplicationRecord
   end
 
   def self.ciphers_search(search_term)
-    "Searching for #{search_term}"
+    joins(:ciphers).where('ciphers.name like ?', "%#{search_term}%")
   end
 
   def self.load_balancer_search(search_term)
