@@ -43,12 +43,32 @@ RSpec.describe Certificate do
   end
 
   it 'tells you all is well if you have no vulnerabilities' do
-    its_good = Certificate.create(
-      url: 'good.com',
-      expiration: Date.today + 30,
-      ip_address: '10.20.30.40'
-    )
+    its_good = Certificate.create(url: 'good.com',
+                                  expiration: Date.today + 30,
+                                  ip_address: '10.20.30.40')
     its_good.ciphers.create(name: 'YAY', secure: true)
     expect(its_good.vulnerabilities).to eql(['All good!'])
+  end
+
+  it 'lets you search for urls' do
+    certificate.save
+    Certificate.create(url: 'good.com',
+                       expiration: Date.today,
+                       ip_address: '10.20.30.40')
+    params = { search: 'good.com', filter: 'url' }
+    search_results = Certificate.search(params)
+    expect(search_results.length).to eql(1)
+    expect(search_results[0].url).to eql('good.com')
+  end
+
+  it 'lets you search for vulnerabilities' do
+    certificate.save
+    Certificate.create(url: 'good.com',
+                       expiration: Date.tomorrow,
+                       ip_address: '10.20.30.40')
+    params = { search: 'Expired', filter: 'vulnerabilities' }
+    search_results = Certificate.search(params)
+    expect(search_results.length).to eql(1)
+    expect(search_results[0].url).to eql('site.com')
   end
 end

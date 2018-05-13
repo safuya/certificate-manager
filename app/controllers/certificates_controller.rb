@@ -1,5 +1,5 @@
 class CertificatesController < ApplicationController
   def index
-    @certificates = Certificate.all
+    @certificates = Certificate.search(params)
   end
 end
