@@ -32,8 +32,6 @@ class Certificate < ApplicationRecord
   end
 
   def self.load_balancer_search(search_term)
-    binding.pry
-    select(Arel.star).where(LoadBalancer[:hostname]).joins(:load_balancer)
     joins(:load_balancer)
       .where('load_balancers.hostname like ?', "%#{search_term}%")
   end
