@@ -19,4 +19,11 @@ RSpec.describe CertificatesController do
     get :index, session: { user_id: @user.id }
     expect(assigns(:certificates).first).to eql(@certificate)
   end
+
+  it 'lets you search' do
+    get :index,
+        params: { search: 'site.com', filter: 'url' },
+        session: { user_id: @user.id }
+    expect(assigns(:certificates).first).to eql(@certificate)
+  end
 end
