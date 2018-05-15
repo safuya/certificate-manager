@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'login' do
-  before do
-    Rails.application.env_config['omniauth.auth'] = nil
-  end
-
   it 'lets a user login using local credentials' do
     User.create(username: 'rob', password: 'letmein')
     visit root_url
@@ -24,5 +20,6 @@ RSpec.describe 'login' do
     visit root_url
     click_link 'github'
     expect(page).to have_link('mockuser')
+    Rails.application.env_config['omniauth.auth'] = nil
   end
 end

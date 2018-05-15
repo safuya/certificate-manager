@@ -11,12 +11,14 @@ RSpec.describe SessionsController do
   it 'lets users sign in' do
     rob = User.create!(username: 'hughesr8', password: 'letmein')
     post :create, params: { username: 'hughesr8', password: 'letmein' }
+    binding.pry unless session[:user_id] == rob.id
     expect(session[:user_id]).to eql(rob.id)
   end
 
   it 'doesnt let invalid users sign in' do
     User.create!(username: 'hughesr8', password: 'letmein')
     post :create, params: { username: 'hughesr8', password: 'hacking' }
+    binding.pry if session.key?(:user_id)
     expect(session.key?(:user_id)).to eql(false)
   end
 

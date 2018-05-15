@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'certificates' do
+RSpec.describe 'vulnerabilities' do
   before do
     @awesome_site = Certificate.create(
       url: 'awesome-site.com',
@@ -22,10 +22,12 @@ RSpec.describe 'certificates' do
     @other_site.load_balancer = LoadBalancer.find_by(
       hostname: 'stm01.che.room101.com'
     )
+    @user = User.create(username: 'rob', password: 'letmein')
     @other_site.save
   end
 
   it 'lists out all of the certificates with their vulnerabilities' do
+    page.set_rack_session(user_id: @user.id)
     visit '/certificates'
     within 'table' do
       expect(page.body).to have_text(@awesome_site.url)
@@ -34,6 +36,7 @@ RSpec.describe 'certificates' do
   end
 
   it 'can search for vulnerabilities' do
+    page.set_rack_session(user_id: @user.id)
     visit '/certificates'
     fill_in :search, with: 'awesome-site.com'
     fill_in :filter, with: 'url'
