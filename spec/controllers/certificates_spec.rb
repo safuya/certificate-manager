@@ -26,4 +26,22 @@ RSpec.describe CertificatesController do
         session: { user_id: @user.id }
     expect(assigns(:certificates).first).to eql(@certificate)
   end
+
+  it 'lets you create a new certificate' do
+    post :create,
+         params: {
+           'certificate' => {
+             'url' => 'website.com',
+             'expiration(1i)' => '2019',
+             'expiration(2i)' => '1',
+             'expiration(3i)' => '1',
+             'ip_address' => '1.2.3.4',
+             'load_balancer_hostname' => 'lb01.room101.com',
+             'cipher_ids' => ['', '1']
+           }
+         },
+         session: { user_id: @user.id }
+    expect(Certificate.find_by(url: 'website.com'))
+      .to respond_to(:vulnerabilities)
+  end
 end

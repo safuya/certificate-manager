@@ -1,1 +1,15 @@
 <h1>Add Certificate</h1>
+
+<%= form_for @certificate do |f| %>
+  <%= f.text_field :url %>
+  <%= f.date_select :expiration %>
+  <%= f.text_field :ip_address %>
+  <%= f.text_field :load_balancer_hostname, list: "load_balancers_autocomplete" %>
+  <datalist id="load_balancers_autocomplete">
+    <% @load_balancers.each do |load_balancer| %>
+      <option value="<%= load_balancer.hostname %>">
+    <% end %>
+  </datalist>
+  <%= f.collection_check_boxes :cipher_ids, @ciphers, :id, :name %>
+  <button type="submit" id="submit">Add Certificate</button>
+<% end %>

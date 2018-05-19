@@ -15,7 +15,18 @@ RSpec.describe 'add_certificates' do
   end
 
   it 'lets you fill in all the credentials' do
+    Cipher.create(name: 'TLA')
     page.set_rack_session(user_id: @user.id)
     visit '/certificates/new'
+    fill_in :certificate_url, with: 'website.com'
+    select '2019', from: :certificate_expiration_1i
+    select 'January', from: :certificate_expiration_2i
+    select '1', from: :certificate_expiration_3i
+    fill_in :certificate_ip_address, with: '1.2.3.4'
+    fill_in :certificate_load_balancer_hostname, with: 'lb01.room101.com'
+    check :certificate_cipher_ids_1
+    click_button :submit
+    expect(page.current_url).to eql(new_certificate_url)
+    expect(page.body).to have_text('website.com')
   end
 end

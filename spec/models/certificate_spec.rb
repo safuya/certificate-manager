@@ -98,4 +98,10 @@ RSpec.describe Certificate do
     search_results = Certificate.search(params)
     expect(search_results[0].url).to eql(certificate.url)
   end
+
+  it 'can create a load balancer from its name' do
+    certificate.load_balancer_hostname = 'lb01'
+    certificate.save
+    expect(certificate.load_balancer.respond_to?(:id)).to eql(true)
+  end
 end

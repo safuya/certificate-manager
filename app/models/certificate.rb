@@ -40,6 +40,10 @@ class Certificate < ApplicationRecord
     load_balancer&.hostname
   end
 
+  def load_balancer_hostname=(hostname)
+    self.load_balancer = LoadBalancer.find_or_create_by(hostname: hostname)
+  end
+
   def cipher_names
     ciphers.map(&:name)
   end
