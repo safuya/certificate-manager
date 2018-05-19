@@ -2,8 +2,10 @@
 
 <div class="search">
   <%= form_tag certificates_path, method: :get do %>
-    <input type="search" name="search" id="search" placeholder="Search">
-    <input list="headings" name="filter" id="filter" placeholder="Filter">
+    <input type="search" name="search" id="search" placeholder="Search"
+      class="big_input fat-sides">
+    <input list="headings" name="filter" id="filter" placeholder="Filter"
+      class="big_input fat-sides">
     <datalist id="headings">
       <option value="url">URL</option>
       <option value="vulnerabilities">Vulnerabilities</option>

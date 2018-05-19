@@ -1,15 +1,29 @@
 <h1>Add Certificate</h1>
 
 <%= form_for @certificate do |f| %>
-  <%= f.text_field :url %>
-  <%= f.date_select :expiration %>
-  <%= f.text_field :ip_address %>
-  <%= f.text_field :load_balancer_hostname, list: "load_balancers_autocomplete" %>
+  <%= f.text_field :url, placeholder: 'URL', class: 'big_input fat_sides' %>
+  <div class="select">
+    <%= f.label :expiration, 'Expiry:' %>
+    <%= f.date_select :expiration, html %>
+  </div>
+  <%= f.text_field :ip_address, placeholder: 'IP Address',
+    class: 'big_input fat_sides' %>
+  <%= f.text_field :load_balancer_hostname, placeholder: 'Load Balancer',
+                   list: 'load_balancers_autocomplete',
+                   class: 'big_input fat_sides' %>
   <datalist id="load_balancers_autocomplete">
     <% @load_balancers.each do |load_balancer| %>
       <option value="<%= load_balancer.hostname %>">
     <% end %>
   </datalist>
-  <%= f.collection_check_boxes :cipher_ids, @ciphers, :id, :name %>
-  <button type="submit" id="submit">Add Certificate</button>
+  <div class="ciphers">
+    <%= f.label :cipher_ids, 'Ciphers:' %>
+    <ul class="checkboxes">
+      <%= f.collection_check_boxes :cipher_ids, @ciphers, :id, :name do |b| %>
+        <li><%= b.check_box + b.text %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= f.submit 'Add Certificate', id: 'add-certificate',
+    class: 'form_submit big_input' %>
 <% end %>

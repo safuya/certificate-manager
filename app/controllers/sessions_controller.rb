@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class SessionsController < ApplicationController
-  def new; end
+  def new
+    redirect_to certificates_url if logged_in?
+  end
 
   def create
     if auth

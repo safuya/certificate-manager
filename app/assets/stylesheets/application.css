@@ -33,47 +33,6 @@ h1 {
   font: 2.5em/1.2 'BT Font Bold';
   text-align: center;
 }
-
-input {
-  border: 2px solid black;
-  padding: 10px;
-  margin: 0 auto 10px auto;
-  width: 300px;
-  text-align: center;
-  font-size: 1rem;
-  display: block;
-}
-
-.form_submit {
-  background: var(--purple);
-  color: white;
-  font-size: 1.125rem;
-}
-/* END */
-
-/* SEARCH AND ADD BAR */
-div.search {
-  display: flex;
-  justify-content: center;
-}
-
-.search input {
-  display: inline-block;
-  width: 200px;
-}
-
-button.features {
-  background: var(--purple);
-  padding: 5px;
-  height: 80%;
-  color: white;
-  display: inline-block;
-  border-radius: 16px;
-}
-
-button a:link, a:visited {
-  color: white;
-}
 /* END */
 
 /* HEADER */
@@ -102,7 +61,88 @@ div.logo {
 }
 /* END */
 
-/* TABLE */
+/* FORMS */
+div.select {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto 10px auto;
+  padding: 10px;
+  border: 1px dashed gray;
+}
+
+select {
+  background: transparent;
+  width: 18%;
+  font-family: 'BT Font Regular';
+  height: 34px;
+  border: 2px solid black;
+}
+
+ul.checkboxes {
+  list-style-type: none;
+  text-align: center;
+  padding: 0;
+}
+
+input[type=checkbox] {
+  border: 2px solid black;
+}
+
+div.ciphers {
+  border: 1px dashed gray;
+  width: 300px;
+  margin: 0 auto 10px auto;
+  padding: 10px;
+}
+
+.big_input {
+  padding: 10px;
+  margin: 0 auto 10px auto;
+  width: 300px;
+  text-align: center;
+  font-size: 1rem;
+  display: block;
+}
+
+.form_submit {
+  background: var(--purple);
+  color: white;
+  font-size: 1.125rem;
+}
+
+.fat_sides {
+  border: 2px solid black;
+}
+/* END */
+
+/* SEARCH AND ADD BAR */
+div.search {
+  display: flex;
+  justify-content: center;
+}
+
+.search input {
+  display: inline-block;
+  width: 200px;
+}
+
+button.features {
+  background: var(--purple);
+  padding: 5px;
+  height: 80%;
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+}
+
+button a:link, a:visited {
+  color: white;
+}
+/* END */
+
+/* TABLES */
 table {
   width: 100%;
   border-radius: 6px;

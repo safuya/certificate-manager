@@ -25,8 +25,8 @@ RSpec.describe 'add_certificates' do
     fill_in :certificate_ip_address, with: '1.2.3.4'
     fill_in :certificate_load_balancer_hostname, with: 'lb01.room101.com'
     check :certificate_cipher_ids_1
-    click_button :submit
-    expect(page.current_url).to eql(new_certificate_url)
+    click_button 'add-certificate'
+    expect(page.current_url).to eql(certificates_url)
     expect(page.body).to have_text('website.com')
   end
 end

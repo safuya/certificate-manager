@@ -15,6 +15,7 @@ class CertificatesController < ApplicationController
 
   def create
     Certificate.create(certificate_params)
+    redirect_to certificates_url
   end
 
   private
