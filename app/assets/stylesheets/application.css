@@ -51,7 +51,7 @@ input {
 }
 /* END */
 
-/* SEARCH */
+/* SEARCH AND ADD BAR */
 div.search {
   display: flex;
   justify-content: center;
@@ -62,13 +62,17 @@ div.search {
   width: 200px;
 }
 
-button#submit-search {
+button.features {
   background: var(--purple);
   padding: 5px;
   height: 80%;
   color: white;
   display: inline-block;
   border-radius: 16px;
+}
+
+button a:link, a:visited {
+  color: white;
 }
 /* END */
 
