@@ -18,6 +18,11 @@ class CertificatesController < ApplicationController
     redirect_to certificates_url
   end
 
+  def destroy
+    Certificate.destroy(params[:id])
+    redirect_to certificates_url
+  end
+
   private
 
   def certificate_params

@@ -3,9 +3,9 @@
 <div class="search">
   <%= form_tag certificates_path, method: :get do %>
     <input type="search" name="search" id="search" placeholder="Search"
-      class="big_input fat-sides">
+      class="big_input fat_sides">
     <input list="headings" name="filter" id="filter" placeholder="Filter"
-      class="big_input fat-sides">
+      class="big_input fat_sides">
     <datalist id="headings">
       <option value="url">URL</option>
       <option value="vulnerabilities">Vulnerabilities</option>
@@ -35,7 +35,17 @@
   </thead>
   <tbody>
     <% @certificates.each do |cert| %><tr>
-      <td><%= cert.url %></td>
+      <td>
+        <%= cert.url %>
+        <%= link_to cert, action: 'edit', id: "edit-#{cert.id}" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+        <%= form_for cert, method: :delete do |f| %> %>
+          <button type="submit" class="invisible" id="del-<%= cert.id %>">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        <% end %>
+      </td>
       <td><%= cert.expiration %></td>
       <td><% cert.vulnerabilities.each do |vuln| %>
         <p><%= vuln %></p>
