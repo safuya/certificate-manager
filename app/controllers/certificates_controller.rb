@@ -23,6 +23,18 @@ class CertificatesController < ApplicationController
     redirect_to certificates_url
   end
 
+  def edit
+    @certificate = Certificate.find(params[:id])
+    @load_balancers = LoadBalancer.all
+    @ciphers = Cipher.all
+  end
+
+  def update
+    certificate = Certificate.find(params[:id])
+    certificate.update(certificate_params)
+    redirect_to certificates_url
+  end
+
   private
 
   def certificate_params

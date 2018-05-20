@@ -10,6 +10,7 @@ example_id                                       | status | run_time        |
 ./spec/features/add_certificates_spec.rb[1:1]    | passed | 0.3912 seconds  |
 ./spec/features/add_certificates_spec.rb[1:2]    | passed | 0.1737 seconds  |
 ./spec/features/delete_certificates_spec.rb[1:1] | passed | 0.31552 seconds |
+./spec/features/edit_certificates_spec.rb[1:1]   | passed | 0.35023 seconds |
 ./spec/features/login_spec.rb[1:1]               | passed | 0.03908 seconds |
 ./spec/features/login_spec.rb[1:2]               | passed | 0.03013 seconds |
 ./spec/features/vulnerabilities_spec.rb[1:1]     | passed | 0.07058 seconds |

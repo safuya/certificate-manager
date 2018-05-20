@@ -1,4 +1,4 @@
-<h1>Add Certificate</h1>
+<h1>Edit Certificate</h1>
 
 <%= form_for @certificate do |f| %>
   <%= f.text_field :url, placeholder: 'URL', class: 'big_input fat_sides' %>
@@ -24,6 +24,6 @@
       <% end %>
     </ul>
   </div>
-  <%= f.submit 'Add Certificate', id: 'add-certificate',
+  <%= f.submit 'Submit Changes', id: 'edit-certificate',
     class: 'form_submit big_input' %>
 <% end %>
