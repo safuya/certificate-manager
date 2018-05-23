@@ -40,7 +40,7 @@
         <%= link_to edit_certificate_url(cert), id: "edit-#{cert.id}" do %>
           <i class="fas fa-edit"></i>
         <% end %>
-        <%= form_for cert, method: :delete do |f| %> %>
+        <%= form_for cert, method: :delete do |f| %>
           <button type="submit" class="invisible" id="del-<%= cert.id %>">
             <i class="fas fa-trash-alt"></i>
           </button>
