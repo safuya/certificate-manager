@@ -4,11 +4,9 @@ require 'rails_helper'
 
 RSpec.describe 'vulnerabilities' do
   before do
-    @awesome_site = Certificate.create(
-      url: 'awesome-site.com',
-      expiration: Date.iso8601('2016-07-03'),
-      ip_address: '123.123.123.123'
-    )
+    @awesome_site = Certificate.create(url: 'awesome-site.com',
+                                       expiration: Date.iso8601('2016-07-03'),
+                                       ip_address: '123.123.123.123')
     @awesome_site.ciphers.create(name: 'DES', secure: false)
     @awesome_site.ciphers.create(name: '3DES', secure: false)
     @awesome_site.ciphers.create(name: 'SHA-1', secure: true)

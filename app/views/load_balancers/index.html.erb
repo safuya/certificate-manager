@@ -1,0 +1,20 @@
+<h1>Load Balancers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hostname</th>
+      <th>IP Address</th>
+      <th>Certificates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @load_balancers.each do |load_balancer| %><tr>
+      <td><%= load_balancer.hostname %></td>
+      <td><%= load_balancer.ip_address %></td>
+      <td><% load_balancer.certificates.each do |cert| %>
+        <p><%= cert.url %></p>
+      <% end %></td>
+    </tr><% end %>
+  </tbody>
+</table>
