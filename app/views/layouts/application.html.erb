@@ -38,7 +38,7 @@
       <% if logged_in? %><nav class="flex">
         <%= link_to "Certificates", certificates_url, class: 'nav',
           id: 'certificates-link' %>
-        <%= link_to 'Traffic Managers', '/placeholder', class: 'nav',
+        <%= link_to 'Load Balancers', load_balancers_url, class: 'nav',
           id: 'traffic-managers-link' %>
         <%= link_to 'Users', '/placeholder', class: 'nav', id: 'users-link' %>
         <%= link_to current_user.username, '/placeholder', class: 'nav',
