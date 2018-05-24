@@ -1,0 +1,6 @@
+<%= form_for @load_balancer do |f| %>
+  <%= f.text_field :hostname, class: 'big_input fat_sides' %>
+  <%= f.text_field :ip_address, class: 'big_input fat_sides' %>
+  <%= f.collection_check_boxes :certificate_ids, @certificates, :id, :url %>
+  <%= f.submit 'Update', id: 'submit' %>
+<% end %>

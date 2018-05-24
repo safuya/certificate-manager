@@ -10,7 +10,13 @@
   </thead>
   <tbody>
     <% @load_balancers.each do |load_balancer| %><tr>
-      <td><%= load_balancer.hostname %></td>
+      <td>
+        <%= load_balancer.hostname %>
+        <%= link_to edit_load_balancer_url(load_balancer),
+          id: "edit-#{load_balancer.id}" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </td>
       <td><%= load_balancer.ip_address %></td>
       <td><% load_balancer.certificates.each do |cert| %>
         <p><%= cert.url %></p>
