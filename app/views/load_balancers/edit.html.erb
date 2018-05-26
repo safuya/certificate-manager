@@ -7,7 +7,13 @@
     <%= f.label :certificate_ids, 'Certificates:' %>
     <ul class="checkboxes">
       <%= f.collection_check_boxes :certificate_ids, @certificates, :id, :url do |b| %>
-        <li><%= b.check_box + b.text %></li>
+        <li>
+          <%= b.check_box + b.text %>
+          <%= link_to edit_load_balancer_certificate_url(@load_balancer.id, b.value),
+            id: "edit-#{b.value}" do %>
+            <i class="fas fa-edit"></i>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

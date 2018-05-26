@@ -2,9 +2,12 @@
 
 require 'rails_helper'
 
-RSpec.describe 'add_certificates' do
+RSpec.describe 'certificates' do
   before do
     @user = User.create(username: 'rob', password: 'letmein')
+    @certificate = Certificate.create(url: 'site.com',
+                                      expiration: Date.iso8601('2016-06-29'),
+                                      ip_address: '123.123.123.123')
     page.set_rack_session(user_id: @user.id)
   end
 
@@ -27,5 +30,21 @@ RSpec.describe 'add_certificates' do
     click_button 'submit-certificate'
     expect(page.current_url).to eql(certificates_url)
     expect(page.body).to have_text('website.com')
+  end
+
+  it 'deletes a certificate' do
+    visit '/certificates'
+    click_button "del-#{@certificate.id}"
+    expect(page.current_url).to eql(certificates_url)
+    expect(page.body).not_to have_text('site.com')
+  end
+
+  it 'edits a certificate' do
+    visit '/certificates'
+    click_link "edit-#{@certificate.id}"
+    fill_in :certificate_load_balancer_hostname, with: 'lb01.room101.com'
+    click_button 'submit-certificate'
+    expect(page.current_url).to eql(certificates_url)
+    expect(page.body).to have_text('lb01.room101.com')
   end
 end
