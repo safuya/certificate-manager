@@ -115,6 +115,10 @@ div.ciphers {
 .fat_sides {
   border: 2px solid black;
 }
+
+.fat_sides.errors {
+  border: 2px solid red;
+}
 /* END */
 
 /* SEARCH AND ADD BAR */

@@ -1,5 +1,6 @@
 <%= form_for certificate do |f| %>
-  <%= f.text_field :url, placeholder: 'URL', class: 'big_input fat_sides' %>
+  <%= f.text_field :url, placeholder: 'URL',
+    class: "big_input fat_sides#{error(certificate)}" %>
   <div class="select">
     <%= f.label :expiration, 'Expiry:' %>
     <%= f.date_select :expiration %>
