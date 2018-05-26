@@ -30,7 +30,7 @@ RSpec.describe CertificatesController do
   it 'lets you create a new certificate' do
     post :create,
          params: {
-           'certificate' => {
+           certificate: {
              'url' => 'website.com',
              'expiration(1i)' => '2019',
              'expiration(2i)' => '1',
@@ -43,5 +43,12 @@ RSpec.describe CertificatesController do
          session: { user_id: @user.id }
     expect(Certificate.find_by(url: 'website.com'))
       .to respond_to(:vulnerabilities)
+  end
+
+  it 'deals with blank urls' do
+    post :create,
+         params: { certificate: { ip_address: '1.2.3.4' } },
+         session: { user_id: @user.id }
+    expect(flash[:error]).to eq("Url can't be blank")
   end
 end

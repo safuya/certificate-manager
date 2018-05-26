@@ -5,6 +5,8 @@ class Certificate < ApplicationRecord
   has_many :certificate_ciphers
   has_many :ciphers, through: :certificate_ciphers
 
+  validates :url, presence: true
+
   def self.search(params)
     if search_filter?(['vulnerabilities'], params)
       vulnerabilities_search(params[:search])

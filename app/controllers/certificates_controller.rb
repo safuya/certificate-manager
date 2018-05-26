@@ -14,8 +14,15 @@ class CertificatesController < ApplicationController
   end
 
   def create
-    Certificate.create(certificate_params)
-    redirect_to certificates_url
+    @certificate = Certificate.new(certificate_params)
+    if @certificate.save
+      redirect_to certificates_url
+    else
+      flash[:error] = @certificate.errors.full_messages.to_sentence
+      @load_balancers = LoadBalancer.all
+      @ciphers = Cipher.all
+      render :new
+    end
   end
 
   def destroy

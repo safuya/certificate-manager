@@ -21,6 +21,11 @@ RSpec.describe Certificate do
     expect(certificate.load_balancer_hostname).to eql('a')
   end
 
+  it 'must have a url' do
+    bad_cert = Certificate.new
+    expect(bad_cert).to_not be_valid
+  end
+
   it 'can have many ciphers' do
     certificate.save
     certificate.ciphers.create(name: 'TLA')
