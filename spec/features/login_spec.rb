@@ -4,11 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'login' do
   it 'lets a user login using local credentials' do
-    User.create(username: 'rob', password: 'letmein')
+    User.create(username: 'rob', password: 'letmein1')
     visit root_url
 
     fill_in :username, with: 'rob'
-    fill_in :password, with: 'letmein'
+    fill_in :password, with: 'letmein1'
     click_button :ENTER
 
     expect(page).to have_selector('h1', text: 'Certificates')

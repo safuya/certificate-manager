@@ -204,6 +204,11 @@ a.oauth {
   color: black;
 }
 /* END */
+
 .flash {
   text-align: center;
+}
+
+a:link#add-certificate i, a:visited#add-certificate i {
+  color: white;
 }

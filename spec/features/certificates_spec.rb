@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'certificates' do
   before do
-    @user = User.create(username: 'rob', password: 'letmein')
+    @user = User.create(username: 'rob', password: 'letmein1')
     @certificate = Certificate.create(url: 'site.com',
                                       expiration: Date.iso8601('2016-06-29'),
                                       ip_address: '123.123.123.123')

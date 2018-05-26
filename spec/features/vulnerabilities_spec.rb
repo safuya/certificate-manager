@@ -20,7 +20,7 @@ RSpec.describe 'vulnerabilities' do
     @other_site.load_balancer = LoadBalancer.find_by(
       hostname: 'stm01.che.room101.com'
     )
-    @user = User.create(username: 'rob', password: 'letmein')
+    @user = User.create(username: 'rob', password: 'letmein1')
     @other_site.save
   end
 

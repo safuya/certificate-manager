@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'load_balancers' do
   before do
-    @user = User.create(username: 'rob', password: 'letmein')
+    @user = User.create(username: 'rob', password: 'letmein1')
     page.set_rack_session(user_id: @user.id)
     @che_lb = LoadBalancer.create(hostname: 'stm01.che.room101.com',
                                   ip_address: '10.207.7.101')
