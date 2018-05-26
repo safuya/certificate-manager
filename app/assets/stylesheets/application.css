@@ -198,3 +198,8 @@ td form {
   display: inline;
 }
 /* END */
+
+/* OAUTH */
+a.oauth {
+  color: black;
+}
