@@ -1,6 +1,15 @@
+<h1>Edit Certificate</h1>
+
 <%= form_for @load_balancer do |f| %>
   <%= f.text_field :hostname, class: 'big_input fat_sides' %>
   <%= f.text_field :ip_address, class: 'big_input fat_sides' %>
-  <%= f.collection_check_boxes :certificate_ids, @certificates, :id, :url %>
-  <%= f.submit 'Update', id: 'submit' %>
+  <div class="ciphers">
+    <%= f.label :certificate_ids, 'Certificates:' %>
+    <ul class="checkboxes">
+      <%= f.collection_check_boxes :certificate_ids, @certificates, :id, :url do |b| %>
+        <li><%= b.check_box + b.text %></li>
+      <% end %>
+    </ul>
+  </div>
+  <%= f.submit 'Update', id: 'submit', class: 'form_submit big_input' %>
 <% end %>
