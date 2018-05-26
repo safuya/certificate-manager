@@ -203,3 +203,7 @@ td form {
 a.oauth {
   color: black;
 }
+/* END */
+.flash {
+  text-align: center;
+}

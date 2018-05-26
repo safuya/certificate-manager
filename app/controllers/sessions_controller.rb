@@ -6,14 +6,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if auth
-      user = User.find_or_create_by_omniauth(auth)
+    user = if auth
+             User.find_or_create_by_omniauth(auth)
+           else
+             User.find_and_authenticate(params[:username], params[:password])
+           end
+    if user
+      session[:user_id] = user.id
+      redirect_to certificates_url
     else
-      user = User.find_by(username: params[:username])
-      return head(:forbidden) unless user&.authenticate(params[:password])
+      redirect_to root_url, flash: { error: 'Invalid username or password' }
     end
-    session[:user_id] = user.id
-    redirect_to certificates_url
   end
 
   def destroy

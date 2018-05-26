@@ -7,4 +7,10 @@ class User < ApplicationRecord
       user.password = SecureRandom.hex
     end
   end
+
+  def self.find_and_authenticate(username, password)
+    user = User.find_by(username: username)
+    user = false unless user&.authenticate(password)
+    user
+  end
 end
