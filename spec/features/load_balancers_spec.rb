@@ -21,11 +21,19 @@ RSpec.describe 'load_balancers' do
     expect(page.body).to have_text('awesome-site.com')
   end
 
-  it 'allows you to edit load balancers' do
+  it 'edits load balancers' do
     visit '/load_balancers'
-    click_link("edit-#{@che_lb.id}")
+    click_link "edit-#{@che_lb.id}"
     fill_in :load_balancer_hostname, with: 'stm01.hdr.room101.com'
     click_button 'submit'
     expect(page.body).to have_text('stm01.hdr.room101.com')
+  end
+
+  it 'edits nested resources' do
+    visit "/load_balancers/#{@che_lb.id}/edit"
+    click_link "edit-#{@che_lb.certificates[0].id}"
+    fill_in :certificate_url, with: 'awesomesauce.com'
+    click_button 'submit-certificate'
+    expect(page.body).to have_text('awesomesauce.com')
   end
 end
