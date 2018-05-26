@@ -182,7 +182,7 @@ tbody tr:last-child td:last-child {
 /* END */
 
 /* ICONS */
-table a:link, table a:visited {
+a:link i, a:visited i {
   color: black;
   text-decoration: none;
 }
@@ -197,5 +197,4 @@ button.invisible {
 td form {
   display: inline;
 }
-/* make form inline without breaking other forms */
 /* END */
