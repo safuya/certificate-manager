@@ -26,4 +26,9 @@ RSpec.describe SessionsController do
     expect(response).to redirect_to root_path
     expect(session[:user_id]).to be(nil)
   end
+
+  it 'stops invalid users and flashes them' do
+    post :create, params: { username: 'im_bad', password: 'letmein' }
+    expect(response).to have_http_status(:forbidden)
+  end
 end

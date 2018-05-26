@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       user = User.find_or_create_by_omniauth(auth)
     else
       user = User.find_by(username: params[:username])
-      return head(:forbidden) unless user.authenticate(params[:password])
+      return head(:forbidden) unless user&.authenticate(params[:password])
     end
     session[:user_id] = user.id
     redirect_to certificates_url
