@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :sessions, only: %i[new create destroy]
   resources :certificates, only: %i[index new create edit update destroy]
   resources :load_balancers, only: %i[index edit update new create] do
-    resources :certificates, only: %i[edit update]
+    resources :certificates, only: %i[edit update index]
   end
   resource :users, only: %i[new create]
   resources :certificate_ciphers, only: %i[index update]

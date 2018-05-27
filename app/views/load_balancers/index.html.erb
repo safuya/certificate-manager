@@ -17,7 +17,9 @@
   <tbody>
     <% @load_balancers.each do |load_balancer| %><tr>
       <td>
-        <%= load_balancer.hostname %>
+        <%= link_to load_balancer.hostname,
+                    load_balancer_certificates_url(load_balancer),
+                    id: "index-#{load_balancer.id}" %>
         <%= link_to edit_load_balancer_url(load_balancer),
           id: "edit-#{load_balancer.id}" do %>
           <i class="fas fa-edit"></i>

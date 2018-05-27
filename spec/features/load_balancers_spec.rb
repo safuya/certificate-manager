@@ -44,4 +44,11 @@ RSpec.describe 'load_balancers' do
     fill_in :load_balancer_ip_address, with: '10.101.20.57'
     click_button 'submit'
   end
+
+  it 'shows nested certificates for a load balancer' do
+    visit '/load_balancers'
+    click_link "index-#{@che_lb.id}"
+    expect(page.body).to have_text('stm01.che.room101.com')
+    expect(page.body).to have_text('Certificates')
+  end
 end

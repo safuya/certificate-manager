@@ -46,7 +46,5 @@ No scaffolding was used in the creation of this Rails project.
 ## TODO
 
 - Add a new nested route.
-- Add a index nested route.
-- Turn the searches into RESTful routes.
 - Add show for user.
 - Add edit for user.

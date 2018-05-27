@@ -8,7 +8,9 @@ class Certificate < ApplicationRecord
   validates :url, presence: true
 
   def self.search(params)
-    if search_filter?(['vulnerabilities'], params)
+    if params[:load_balancer_id]
+      where(load_balancer_id: params[:load_balancer_id])
+    elsif search_filter?(['vulnerabilities'], params)
       vulnerabilities_search(params[:search])
     elsif search_filter?(['ciphers'], params)
       ciphers_search(params[:search])
