@@ -51,4 +51,10 @@ RSpec.describe 'load_balancers' do
     expect(page.body).to have_text('stm01.che.room101.com')
     expect(page.body).to have_text('Certificates')
   end
+
+  it 'creates a nested certificate for a load balancer' do
+    visit '/load_balancers'
+    click_link "new-certificate-#{@che_lb.id}"
+    expect(page.body).to have_selector("input[value='#{@che_lb.hostname}']")
+  end
 end

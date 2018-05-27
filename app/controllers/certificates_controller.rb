@@ -8,7 +8,7 @@ class CertificatesController < ApplicationController
   end
 
   def new
-    @certificate = Certificate.new
+    @certificate = Certificate.new(load_balancer_id: params[:load_balancer_id])
     @load_balancers = LoadBalancer.all
     @ciphers = Cipher.all
   end

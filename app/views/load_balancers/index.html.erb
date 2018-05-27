@@ -26,9 +26,19 @@
         <% end %>
       </td>
       <td><%= load_balancer.ip_address %></td>
-      <td><% load_balancer.certificates.each do |cert| %>
-        <p><%= cert.url %></p>
-      <% end %></td>
+      <td>
+        <% load_balancer.certificates.each do |cert| %>
+          <p><%= cert.url %></p>
+        <% end %>
+        <p>
+          <button class="features">
+            <%= link_to new_load_balancer_certificate_url(load_balancer),
+              class: 'add', id: "new-certificate-#{load_balancer.id}" do %>
+              <i class="fas fa-plus"></i>
+            <% end %>
+          </button>
+        </p>
+      </td>
     </tr><% end %>
   </tbody>
 </table>
