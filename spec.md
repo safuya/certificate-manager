@@ -28,11 +28,12 @@ It allows login from GitHub.
 
 - [x] You must make use of a nested resource with the appropriate RESTful URLs. Additionally, your nested resource must provide a form that relates to the parent resource. Imagine an application with user profiles. You might represent a person's profile via the RESTful URL of /profiles/1, where 1 is the primary key of the profile. If the person wanted to add pictures to their profile, you could represent that as a nested resource of /profiles/1/pictures, listing all pictures belonging to profile 1. The route /profiles/1/pictures/new would allow me to upload a new picture to profile 1. Focus on making a working application first and then adding more complexity. Making a nested URL resource like '/divisions/:id/teams/new' is great. Having a complex nested resource like 'countries/:id/sports/:id/divisions/:id/teams/new' is going to make this much harder on you.
 
-There is a nested edit form for certificates under load balancers.
+There is a nested index, new and edit for certificates under load balancers.
 
 - [x] Your forms should correctly display validation errors. Your fields should be enclosed within a fields_with_errors class and error messages describing the validation failures must be present within the view.
 
-There are error messages for invalid login.
+There are error messages for invalid login. Full feedback isn't provided here to stop fishing of usernames.
+There's the fields_with_errors type example in the rest of the forms (/certificates/new for example for blank url).
 
 - [x] Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails app. Logic present in your controllers should be encapsulated as methods in your models. Your views should use helper methods and partials to be as logic-less as possible. Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
@@ -45,6 +46,5 @@ No scaffolding was used in the creation of this Rails project.
 
 ## TODO
 
-- Add a new nested route.
-- Add show for user.
-- Add edit for user.
+- Write blog.
+- Record walkthrough.

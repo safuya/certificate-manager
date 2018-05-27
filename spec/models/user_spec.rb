@@ -19,4 +19,31 @@ RSpec.describe User do
     short_pass = User.new(username: 'short', password: 'sweet')
     expect(short_pass).to_not be_valid
   end
+
+  it 'checks if it is #updateable?' do
+    params = {
+      user: { password: 'password' },
+      current_password: 'letmein1',
+      password_confirmation: 'password'
+    }
+    expect(user.updateable?(params)).to be true
+  end
+
+  it 'is not #updateable? if the current password is wrong' do
+    params = {
+      user: { password: 'password' },
+      current_password: 'im-wrong',
+      password_confirmation: 'password'
+    }
+    expect(user.updateable?(params)).to be false
+  end
+
+  it 'is not #updateable? if the password confirmation is wrong' do
+    params = {
+      user: { password: 'password' },
+      current_password: 'letmein1',
+      password_confirmation: 'psssword'
+    }
+    expect(user.updateable?(params)).to be false
+  end
 end

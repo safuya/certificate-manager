@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :load_balancers, only: %i[index edit update new create] do
     resources :certificates, only: %i[edit update index new]
   end
-  resource :users, only: %i[new create]
+  resources :users, only: %i[new create show edit update]
   resources :certificate_ciphers, only: %i[index update]
   root to: 'sessions#new'
 end

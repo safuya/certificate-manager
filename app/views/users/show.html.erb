@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+<div class="ciphers">
+  <p>Username: <%= @user.username %></p>
+  <p>Account created: <%= @user.created_at %></p>
+  <p>Account updated: <%= @user.updated_at %></p>
+</div>
+
+<%= link_to edit_user_url(@user), id: 'update-profile' do %>
+  <button class="form_submit big_input">UPDATE</button>
+<% end %>

@@ -19,7 +19,7 @@ RSpec.describe UsersController do
       }
     end
     expect(flash[:error]).to eq(error_message)
-    expect(response).to redirect_to new_users_url
+    expect(response).to redirect_to new_user_url
   end
 
   it 'stops passwords shorter than 8 characters' do

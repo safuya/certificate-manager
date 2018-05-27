@@ -14,4 +14,12 @@ class User < ApplicationRecord
     user = false unless user&.authenticate(password)
     user
   end
+
+  def updateable?(params)
+    authenticate(params[:current_password]) && passwords_match?(params)
+  end
+
+  def passwords_match?(params)
+    params[:user][:password] == params[:password_confirmation]
+  end
 end
