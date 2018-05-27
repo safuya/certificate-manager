@@ -51,4 +51,9 @@ RSpec.describe CertificatesController do
          session: { user_id: @user.id }
     expect(flash[:error]).to eq("Url can't be blank")
   end
+
+  it 'stops unauthenticated users' do
+    get :index
+    expect(flash[:alert]).to eql('Only authorised user can see that content')
+  end
 end

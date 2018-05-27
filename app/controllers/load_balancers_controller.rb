@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class LoadBalancersController < ApplicationController
+  before_action :authenticate!
+
   def index
     @load_balancers = LoadBalancer.all
   end
