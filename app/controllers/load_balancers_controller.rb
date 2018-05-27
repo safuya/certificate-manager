@@ -18,7 +18,10 @@ class LoadBalancersController < ApplicationController
     redirect_to load_balancers_url
   end
 
-  def new; end
+  def new
+    @load_balancer = LoadBalancer.new
+    @certificates = Certificate.all
+  end
 
   def create
     @load_balancer = LoadBalancer.new(load_balancer_params)

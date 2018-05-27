@@ -1,0 +1,22 @@
+<%= form_for load_balancer do |f| %>
+  <%= f.text_field :hostname, class: 'big_input fat_sides' %>
+  <%= f.text_field :ip_address, class: 'big_input fat_sides' %>
+  <div class="ciphers">
+    <%= f.label :certificate_ids, 'Certificates:' %>
+    <ul class="checkboxes">
+      <%= f.collection_check_boxes :certificate_ids, certificates, :id, :url do |b| %>
+        <li>
+          <%= b.check_box + b.text %>
+          <% if load_balancer.id %>
+            <%= link_to edit_load_balancer_certificate_url(load_balancer.id, b.value),
+              id: "edit-#{b.value}" do %>
+              <i class="fas fa-edit"></i>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= f.submit create_or_update(load_balancer), id: 'submit',
+    class: 'form_submit big_input' %>
+<% end %>
