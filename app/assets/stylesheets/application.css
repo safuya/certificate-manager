@@ -213,6 +213,6 @@ a.oauth {
   text-align: center;
 }
 
-a:link#add-certificate i, a:visited#add-certificate i {
+a:link.add i, a:visited.add i {
   color: white;
 }

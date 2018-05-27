@@ -23,4 +23,9 @@ RSpec.describe LoadBalancer do
     duplicate = LoadBalancer.new(hostname: 'host', ip_address: '10.101.20.5')
     expect(duplicate).to_not be_valid
   end
+
+  it 'has to have a hostname' do
+    blank_lb = LoadBalancer.new
+    expect(blank_lb).to_not be_valid
+  end
 end
