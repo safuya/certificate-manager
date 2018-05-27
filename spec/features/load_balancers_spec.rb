@@ -36,4 +36,12 @@ RSpec.describe 'load_balancers' do
     click_button 'submit-certificate'
     expect(page.body).to have_text('awesomesauce.com')
   end
+
+  it 'creates load balancers' do
+    visit '/load_balancers'
+    click_link 'new-load-balancer'
+    fill_in :load_balancer_hostname, with: 'lb01.room101.com'
+    fill_in :load_balancer_ip_address, with: '10.101.20.57'
+    click_button 'submit'
+  end
 end

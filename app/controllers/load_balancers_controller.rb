@@ -18,6 +18,19 @@ class LoadBalancersController < ApplicationController
     redirect_to load_balancers_url
   end
 
+  def new; end
+
+  def create
+    @load_balancer = LoadBalancer.new(load_balancer_params)
+    if @load_balancer.save
+      redirect_to load_balancers_url
+    else
+      flash[:error] = @load_balancer.errors.full_messages.to_sentence
+      @certificates = Certificate.all
+      render :new
+    end
+  end
+
   private
 
   def load_balancer_params
