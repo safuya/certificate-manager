@@ -8,6 +8,7 @@ Ruby on Rails has been used for the project.
 
 Certificates have and belong to many ciphers through certificate ciphers.
 Certificates belong to a load balancer.
+CertificateCiphers has a comment field.
 
 - [x] Your models should include reasonable validations for the simple attributes. You don't need to add every possible validation or duplicates, such as presence and a minimum length, but the models should defend against invalid data.
 
@@ -44,7 +45,8 @@ No scaffolding was used in the creation of this Rails project.
 
 ## TODO
 
-- Add a value to my join table.
 - Add a new nested route.
 - Add a index nested route.
 - Turn the searches into RESTful routes.
+- Add show for user.
+- Add edit for user.

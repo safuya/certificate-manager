@@ -1,7 +1,7 @@
 <%= form_for load_balancer do |f| %>
-  <%= f.text_field :hostname,
+  <%= f.text_field :hostname, placeholder: 'Hostname',
     class: "big_input fat_sides#{error(load_balancer, 'hostname')}" %>
-  <%= f.text_field :ip_address,
+  <%= f.text_field :ip_address, placeholder: 'IP Address',
     class: "big_input fat_sides#{error(load_balancer, 'ip_address')}" %>
   <div class="ciphers">
     <%= f.label :certificate_ids, 'Certificates:' %>
