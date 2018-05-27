@@ -3,9 +3,9 @@
 <table>
   <thead>
     <tr>
-      <th>Hostname</th>
-      <th>IP Address</th>
-      <th>Certificates</th>
+      <th>Certificate</th>
+      <th>Cipher</th>
+      <th>Comment</th>
     </tr>
   </thead>
   <tbody>
@@ -14,11 +14,10 @@
       <td><%= cc.cipher_name %></td>
       <td>
         <%= form_for cc do |f| %>
-          <%= f.text_field :comment %>
-          <%= f.submit %>
+          <%= f.text_field :comment, id: "certificate_cipher_comment_#{cc.id}" %>
+          <%= f.submit 'Update Comment', id: "submit_#{cc.id}" %>
         <% end %>
       </td>
     </tr><% end %>
   </tbody>
 </table>
-
