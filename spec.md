@@ -44,8 +44,7 @@ No scaffolding was used in the creation of this Rails project.
 
 ## TODO
 
-- fields_with_errors on the correct inputs.
 - Add a value to my join table.
-- Add a show nested route.
 - Add a new nested route.
+- Add a index nested route.
 - Turn the searches into RESTful routes.

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :certificates, only: %i[edit update]
   end
   resource :users, only: %i[new create]
+  resources :certificate_ciphers, only: %i[index]
   root to: 'sessions#new'
 end

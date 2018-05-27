@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_12_063841) do
+ActiveRecord::Schema.define(version: 2018_05_27_094323) do
 
   create_table "certificate_ciphers", force: :cascade do |t|
     t.integer "certificate_id"
     t.integer "cipher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comment"
     t.index ["certificate_id"], name: "index_certificate_ciphers_on_certificate_id"
     t.index ["cipher_id"], name: "index_certificate_ciphers_on_cipher_id"
   end

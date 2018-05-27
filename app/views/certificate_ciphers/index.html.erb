@@ -1,0 +1,24 @@
+<h1>Certificate Ciphers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hostname</th>
+      <th>IP Address</th>
+      <th>Certificates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @certificate_ciphers.each do |cc| %><tr>
+      <td><%= cc.certificate_url %></td>
+      <td><%= cc.cipher_name %></td>
+      <td>
+        <%= form_for cc do |f| %>
+          <%= f.text_field :comment %>
+          <%= f.submit %>
+        <% end %>
+      </td>
+    </tr><% end %>
+  </tbody>
+</table>
+
