@@ -33,6 +33,10 @@ h1 {
   font: 2.5em/1.2 'BT Font Bold';
   text-align: center;
 }
+
+.center {
+  text-align: center;
+}
 /* END */
 
 /* HEADER */
