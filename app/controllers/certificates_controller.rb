@@ -26,6 +26,8 @@ class CertificatesController < ApplicationController
   end
 
   def destroy
+    certificate = Certificate.find(params[:id])
+    certificate.certificate_ciphers.destroy_all
     Certificate.destroy(params[:id])
     redirect_to certificates_url
   end
