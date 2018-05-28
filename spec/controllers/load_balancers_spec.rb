@@ -25,8 +25,6 @@ RSpec.describe LoadBalancersController do
            }
          },
          session: { user_id: @user.id }
-    expect(flash[:error]).to eq(
-      'Hostname has already been taken and Ip address has already been taken'
-    )
+    expect(flash[:error]).to eq('Hostname has already been taken')
   end
 end

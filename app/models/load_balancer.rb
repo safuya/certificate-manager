@@ -2,6 +2,6 @@
 
 class LoadBalancer < ApplicationRecord
   has_many :certificates
-  validates :hostname, :ip_address, uniqueness: true
+  validates :hostname, uniqueness: true
   validates :hostname, presence: true
 end
