@@ -36,7 +36,7 @@
         <%= image_tag "logo.png" %>
       </div>
       <% if logged_in? %><nav class="flex">
-        <%= link_to "Certificates", certificates_url, class: 'nav',
+        <%= link_to 'Certificates', certificates_url, class: 'nav',
           id: 'certificates-link' %>
         <%= link_to 'Load Balancers', load_balancers_url, class: 'nav',
           id: 'traffic-managers-link' %>
@@ -46,6 +46,9 @@
           class: 'nav', id: 'profile-link' %>
         <%= link_to 'Sign Out', '/sessions', method: 'delete', class: 'nav',
           id: 'sign-out' %>
+      </nav><% else %><nav class="flex">
+        <%= link_to 'Register', new_user_url, class: 'nav', id: 'register' %>
+        <%= link_to 'Login', root_url, class: 'nav', id: 'login-page' %>
       </nav><% end %>
     </header>
     <% flash.each do |key, value| %>
