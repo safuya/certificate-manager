@@ -46,5 +46,6 @@ No scaffolding was used in the creation of this Rails project.
 
 ## TODO
 
-- Write blog.
-- Record walkthrough.
+- Remove oauth.
+- Implement LDAP.
+- Deploy to VM.

@@ -47,7 +47,8 @@ class CertificatesController < ApplicationController
   private
 
   def certificate_params
-    params.require(:certificate).permit(:url, :expiration, :ip_address,
-                                        :load_balancer_hostname, cipher_ids: [])
+    params.require(:certificate).permit(
+      :url, :expiration, :ip_address, :load_balancer_hostname, cipher_ids: []
+    )
   end
 end

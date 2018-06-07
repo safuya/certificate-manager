@@ -37,7 +37,7 @@ class LoadBalancersController < ApplicationController
   private
 
   def load_balancer_params
-    params.require(:load_balancer).permit(:hostname, :ip_address,
-                                          certificate_ids: [])
+    params.require(:load_balancer)
+          .permit(:hostname, :ip_address, certificate_ids: [])
   end
 end

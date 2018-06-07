@@ -3,7 +3,7 @@
 module AuthenticationHelper
   def authenticate!
     unless logged_in?
-      redirect_to root_url, alert: 'Only authorised user can see that content'
+      redirect_to root_url, alert: 'Only authorised users can see that content'
     end
   end
 

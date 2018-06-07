@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module ValidationHelper
-  def error(inst, field)
-    if inst.errors[field].any?
+  def error(instance, field)
+    if instance.errors[field].any?
       ' errors'
     else
       ''
