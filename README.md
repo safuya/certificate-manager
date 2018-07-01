@@ -1,7 +1,7 @@
 # Certificate Manager
 
 This application manages certificates, tracking expiry dates and ciphers being
-used. It runs on Ruby 2.3.3 and Rails 5.2.
+used. It runs on Ruby 2.3.3 and Rails 5.2. A demo of this project can be found [here](https://www.youtube.com/watch?v=v23bZI9P64s), and a blog post on the development process can be found [here](http://safuya.info/certificate_manager).
 
 ## Configuration
 
@@ -43,6 +43,6 @@ The code is available as open source under the terms of the
 
 ## Code of Conduct
 
-Everyone interacting in the Device Manager project’s codebases, issue trackers,
+Everyone interacting in the Certificate Manager project’s codebases, issue trackers,
 chat rooms and mailing lists is expected to follow the
-[code of conduct](https://github.com/safuya/device-manager/blob/master/CODE_OF_CONDUCT.md).
+[code of conduct](https://github.com/safuya/certificate-manager/blob/master/CODE_OF_CONDUCT.md).
